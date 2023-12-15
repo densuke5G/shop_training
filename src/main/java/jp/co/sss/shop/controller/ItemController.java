@@ -125,4 +125,10 @@ public class ItemController {
 		model.addAttribute("deptId", deptId);
 		return "lesson";
 	}
+	
+	@RequestMapping("/items/findAllJs")
+	public String showItemListJs(Model model) {
+		model.addAttribute("items", repository.findAll());
+		return "items/item_list_js";
+	}
 }
