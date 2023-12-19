@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 </head>
 
 <body>
@@ -13,13 +13,13 @@
 
 	<!--性別のチェックボックス hobbyが1なら映画にチェック　-->
 	<!-- hobbyが2なら音楽鑑賞にチェック hobbyが3なら食事にチェック　-->
-	<input type="checkbox" value="1" th:checked="${hobby} == 1">映画
-	<input type="checkbox" value="2" th:checked="${hobby} == 2">音楽鑑賞
-	<input type="checkbox" value="3" th:checked="${hobby} == 3">食事
+	<input type="checkbox" value="1" th:checked="${hobby == 1}">映画
+	<input type="checkbox" value="1" th:checked="${hobby == 2}">音楽鑑賞
+	<input type="checkbox" value="1" th:checked="${hobby == 3}">食事
 
 	<!--リストjobsの内容をすべて表示　-->
 	<div th:each="job: ${jobs}">
-		<div th;text="${job}"></div>
+		<div th:text="${job}"></div>
 	</div>
 
 	<!--リストjobsの内容をすべて表示　No.は1,2,3とする-->
@@ -35,13 +35,13 @@
 	</table>
 
 	<!-- speedが1から高速、2なら普通、3なら低速-->
-	<div th:if="${speed == 1}">高速</div>
-	<div th:if="${speed == 2}">普通</div>
-	<div th:if="${speed == 3}">低速</div>
+	<div th:if= "${speed == 1}">高速</div>
+	<div th:if= "${speed == 2}">普通</div>
+	<div th:if= "${speed == 3}">低速</div>
 
 	<!-- sudaの中身が「すだ」なら芸能人、「ちだ」ならイケメン-->
-	<div th:if="${suda == 'すだ'}">芸能人</div>
-	<div th:if="${suda == 'ちだ'}">イケメン</div>
+	<div th:if="${suda} == 'すだ'">芸能人</div>
+	<div th:if="${suda} == 'ちだ'">イケメン</div>
 
 	<!-- birthdayを2023/12/14形式で表示 -->
 	<div th:text="${#dates.format(birthday, 'yyyy/MM/dd')}"></div>
